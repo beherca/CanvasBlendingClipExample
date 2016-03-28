@@ -1,0 +1,89 @@
+<html>
+<head>
+  <script type="text/javascript">
+         function drawShape(){
+            
+            // get the canvas element using the DOM
+            var canvas = document.getElementById('mycanvas');
+            
+            // Make sure we don't execute when canvas isn't supported
+            if (canvas.getContext){
+            
+               // use getContext to use the canvas for drawing
+               var ctx = canvas.getContext('2d');
+               ctx.globalCompositeOperation = 'multiply';
+               ctx.save();
+                ctx.beginPath();
+                var x = 400;
+                ctx.moveTo(20+x,0);
+                  ctx.lineTo(120+x,0);
+                  ctx.lineTo(120+x,160);
+                  ctx.lineTo(142+x,265);
+                  ctx.lineTo(-20+x,380);
+                  ctx.lineTo(-20+x,280);
+                  ctx.lineTo(-10+x,120);
+                // ctx.arc(800, 25, 700, 0, Math.PI * 2, true);
+                ctx.closePath();
+                ctx.clip();
+          
+              
+               // Draw shapes
+               var img = new Image();
+               img.src = 'bg.jpg';
+               
+               img.onload = function(){
+                  var img1 = new Image();
+                  img1.src = 'texture.jpg';
+                  
+                  img1.onload = function(){
+                    ctx.drawImage(img,0,0);
+                    ctx.drawImage(img1,400,0);
+                    ctx.restore();
+                  }
+                  
+               }
+            }
+            
+            else {
+               alert('You need Safari or Firefox 1.5+ to see this demo.');
+            }
+         }
+      </script>
+  <style>
+    html, body{
+      width: 100%;
+      height: 100%;
+    }
+    .bg{
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0.5
+    }
+    .main {
+      width: 800px;
+      margin:auto;
+      position: relative;
+    }
+    #mycanvas{  
+      width: 800px;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      position: absolute;
+    }
+    </style>
+</head>
+<body onload="drawShape();">
+
+  <div class="main">
+    <img src="bg.jpg" alt="" class="bg">
+    <canvas id="mycanvas" width="800" height="600"></canvas>
+  </div>
+
+</body>
+</html>
