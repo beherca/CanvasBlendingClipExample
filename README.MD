@@ -1,4 +1,5 @@
--- Refrences of canvas and mask and blending
+Refrences of canvas and mask and blending
+------------
 1. use image in canvas http://www.tutorialspoint.com/html5/canvas_using_images.htm 
 2. different method on apply mask and clip http://codepen.io/yoksel/pen/fsdbu
 3. blending  http://blogs.adobe.com/webplatform/2012/04/04/bringing-blending-to-the-web/
@@ -9,5 +10,6 @@
 
 
 Tools to genereate svg paths
+------------
 1. http://www.drawsvg.org/
 2. http://cssplant.com/clip-path-generator
